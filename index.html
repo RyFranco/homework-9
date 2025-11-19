@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Your Giga Pet</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <main>
+
+      <div class="pet-wrapper">
+        <div class="above-container-block"></div>
+  
+        <section class="pet-image-container">
+           <!-- Replace pet image with your own pet image -->
+          <img id="backgroundImg" class="pet-image" src="./images/idle1.png">
+          <img id="guyImg"  src="./images/sleep1.png">
+          <img id="windowImg"  src="./images/openWindow.png" style="display:none;">
+          <img id="wakeImg"  src="./images/awake.png" style="display:none;">
+          <img id="outFireplaceImg"  src="./images/fireplaceOff.png" style="display:none;">
+          <img id="handImg" classs="hand"  src="./images/hand.png" >
+        </section>
+        
+      </div>
+      
+      
+      <section class="dashboard">
+        <div>Sleep Quality: <strong><span class="sleep_quality"></span></strong></div>
+        <div>Temperture: <strong><span class="temperture"></span></strong></div>
+        
+        <div class="button-container">
+          <button class="window-button">
+            Window
+          </button>
+          <button class="wake-button">
+            Wake
+          </button>
+          <button class="fireplace-button">
+            Fireplace
+          </button>
+          <button class="sleep-button">
+            Sleep
+          </button>
+        </div>
+      </section>
+      <p class="pet-comment"></p>
+    </main>
+
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+  </body>
+</html>
