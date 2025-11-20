@@ -9,11 +9,14 @@ $(function () { // Makes sure that your function is called once all the DOM elem
   $('.fireplace-button').click(clickedFireplaceButton);
   $('.sleep-button').click(clickedSleepButton);
 
+  //set animation intervals
   setInterval(cycleRoomIdle, 750);
   setInterval(sleepIdle, 750);
   setInterval(updateStats, 2000);
   setInterval(animateHandDrop, 5000);
 
+
+  //Wait 30 seconds and end the game, display avg sleep score
   setTimeout(function () {
     $('.window-button').off('click');
     $('.wake-button').off('click');
@@ -31,6 +34,7 @@ $(function () { // Makes sure that your function is called once all the DOM elem
 var pet_info = { sleepQuality: 5, Temperture: 5 };
 let overAllSleepQuality = 0;
 
+//comments for when you click a button
 const comments = {
   window: "Click...",
   wake: "👀",
@@ -66,6 +70,7 @@ const $wakeImageElm = $(`#wakeImg`);
 function clickedWakeButton() {
   isAwake = true;
 
+  //if awake scare all hands away
   if (isAwake) {
     $wakeImageElm.show();
     $('.hand').stop(true, false).fadeOut(500, function () {
@@ -76,6 +81,8 @@ function clickedWakeButton() {
   checkAndUpdatePetInfoInHtml('wake');
 }
 
+
+//put guy to sleep
 function clickedSleepButton() {
   isAwake = false;
   if (isAwake == false) {
@@ -103,7 +110,7 @@ function clickedFireplaceButton() {
 //////////////////
 //////////////////
 
-
+//update all html
 function checkAndUpdatePetInfoInHtml(statusSource) {
 
   updatePetInfoInHtml();
@@ -113,6 +120,9 @@ function checkAndUpdatePetInfoInHtml(statusSource) {
   }
 }
 
+
+
+//Updates variable based 
 function updateStats() {
 
   pet_info.sleepQuality += isAwake ? -1 : 0.5;
@@ -195,19 +205,20 @@ function sleepIdle() {
   isSleepIdleFrame1 = !isSleepIdleFrame1
 }
 
-
-
-
-
+//controls hand functionality
 function animateHandDrop() {
+  //if you are awake 
   if (isAwake) {
     return;
   }
 
+
+  
   const $original = $('#handImg');
   const handPositions = ['3%', '47%', '86%'];
   const handDropHeights = ['-400px', '-300px', '-250px'];
 
+  //for each hand that is created random chance 
   handPositions.forEach((pos, index) => {
     if (Math.random() < 0.3) return;
     const $newHand = $original.clone()
@@ -226,6 +237,7 @@ function animateHandDrop() {
     $('.pet-image-container').append($newHand);
   });
 
+  //for each go down
   $('.hand').each(function () {
     const $hand = $(this);
     const index = $hand.data('dropIndex') ?? 0;
